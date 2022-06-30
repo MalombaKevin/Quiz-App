@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'rest_framework',
-    'quiz_app'
+    'quiz_app',
+    'nested_admin',
 ]
 
 MIDDLEWARE = [
