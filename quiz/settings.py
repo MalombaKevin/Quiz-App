@@ -15,9 +15,9 @@ import os
 from decouple import config,Csv
 import dj_database_url
 import django_heroku
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'accounts.User' 
 
 # Application definition
 
@@ -45,9 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'cloudinary',
     'rest_framework',
-    'quiz_app'
+    'quiz_app',
+    'accounts',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,10 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'UNICODE_JSON':False
+}
 ROOT_URLCONF = 'quiz.urls'
 
 TEMPLATES = [
@@ -127,11 +133,11 @@ USE_I18N = True
 USE_TZ = True
 
 
-cloudinary.config( 
-  cloud_name=config('CLOUD_NAME'),
-  api_key=config('API_KEY'),
-  api_secret=config('API_SECRET')   
-)
+# cloudinary.config( 
+#   cloud_name=config('CLOUD_NAME'),
+#   api_key=config('API_KEY'),
+#   api_secret=config('API_SECRET')   
+# )
 
 
 
