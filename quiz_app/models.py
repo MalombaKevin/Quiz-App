@@ -44,3 +44,12 @@ class Answer(models.Model):
 	def __str__(self):
 		return self.label
 
+class QuizTaker(models.Model):
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+	score = models.IntegerField(default=0)
+	completed = models.BooleanField(default=False)
+	timestamp = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.user.email
