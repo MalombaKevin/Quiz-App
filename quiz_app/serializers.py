@@ -1,5 +1,11 @@
-from models import Quiz, QuizTaker, Question, Answer, UsersAnswer
+from models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
 from rest_framework import serializers
+
+class CategorySerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Category
+		fields = "__all__"
+		read_only_fields = ('__all__')
 
 
 class QuizListSerializer(serializers.ModelSerializer):
