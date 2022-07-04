@@ -14,7 +14,7 @@ class AnswerInline(nested_admin.NestedTabularInline):
 class QuestionInline(nested_admin.NestedTabularInline):
 	model = Question
 	inlines = [AnswerInline,]
-	extra = 4
+	extra = 1
 
 
 class QuizAdmin(nested_admin.NestedModelAdmin):
