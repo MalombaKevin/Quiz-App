@@ -30,7 +30,7 @@
             <div class="container-fluid">
               <ul class="navbar-nav d-flex flex-row">
                 <!-- Icons -->
-                <li class="nav-item me-3 me-lg-0">
+                <li class="nav-item me-3 ms-3 me-lg-0">
                   <a class="nav-link" href="#">
                     <i class="fas fa-bell text-light"></i>
                   </a>
@@ -39,15 +39,16 @@
                 <!-- Icon dropdown -->
                 <li class="nav-item me-3 me-lg-0 dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
+                    class="nav-link dropdown-toggle text-light"
                     href="#"
                     id="navbarDropdown"
                     role="button"
                     data-mdb-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <i class="fas fa-user text-light"></i>
+                   Quiz Api <i>&#9781;</i>
                   </a>
+
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
                       <a class="dropdown-item" href="{% url 'quizzes'%}">QUIZZES</a>
@@ -59,8 +60,39 @@
                     <li>
                       <a class="dropdown-item" href="{% url 'my_quizlist'%}">MyQUIZ</a>
                     </li>
+                    
                   </ul>
                 </li>
+
+
+                <li class="nav-item  ms-3 me-3 me-lg-0 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                   Auth Api <i class="fas fa-user text-light"></i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    
+                    <li>
+                      <a class="dropdown-item" href="{% url 'register'%}">Register</a>
+                    </li>
+
+                    <li>
+                      <a class="dropdown-item" href="{% url 'login'%}">Login</a>
+                    </li>
+                  </ul>
+                </li>
+
+
+
+
+
               </ul>
             </div>
           </nav>
@@ -68,6 +100,10 @@
           <div class=" w-75 mt-2 mx-auto" style="background-image: url('../../static/images/quesa.svg'); height: 70vh; background-repeat: no-repeat; background-size: cover;">
 
 
+          </div>
+          <hr>
+          <div>
+            <p class="text-danger text-center" style="font-size: 10em;">&#8511;</p>
           </div>
     </div>
    <!-- JavaScript Bundle with Popper -->
