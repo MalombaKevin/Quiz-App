@@ -6,3 +6,6 @@ def index(request):
 
 def landing(request):
     return render('', 'landing.html')
+    
+def login(request):
+    return render('', 'login.html')

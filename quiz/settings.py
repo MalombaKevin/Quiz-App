@@ -34,6 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'accounts.User' 
 
 # Application definition
 
@@ -45,9 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'cloudinary',
     'rest_framework',
-    'quiz_app'
+    'cloudinary',
+    'quiz_app',
+    'accounts',
+    'knox',
+    'nested_admin',
+
 ]
 
 MIDDLEWARE = [
@@ -61,6 +66,10 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'UNICODE_JSON':False
+}
 ROOT_URLCONF = 'quiz.urls'
 
 TEMPLATES = [
