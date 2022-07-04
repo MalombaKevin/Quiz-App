@@ -22,6 +22,7 @@ class Quiz(models.Model):
 	roll_out = models.BooleanField(default=False)
 	timestamp = models.DateTimeField(auto_now_add=True)
 
+
 	class Meta:
 		ordering = ['timestamp',]
 		verbose_name_plural = "Quizzes"
