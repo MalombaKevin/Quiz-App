@@ -46,6 +46,7 @@ class Answer(models.Model):
 		return self.label
 
 class QuizTaker(models.Model):
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 	score = models.IntegerField(default=0)
 	completed = models.BooleanField(default=False)
@@ -67,3 +68,4 @@ class UsersAnswer(models.Model):
 @receiver(pre_save, sender=Quiz)
 def slugify_name(sender, instance, *args, **kwargs):
 	instance.slug = slugify(instance.name)
+
