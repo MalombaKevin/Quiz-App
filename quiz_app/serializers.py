@@ -1,12 +1,26 @@
+<<<<<<< HEAD
+from .models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
+=======
 from .models import Category, QuizTaker, Question, Answer, UsersAnswer,Quiz
+>>>>>>> main
 from rest_framework import serializers
 
-
 class CategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = '__all__'
-        read_only_fields = ('__all__',)
+	class Meta:
+		model = Category
+		fields = "__all__"
+		read_only_fields = ('__all__')
+
+
+class QuizListSerializer(serializers.ModelSerializer):
+	questions_count = serializers.SerializerMethodField()
+	class Meta:
+		model = Quiz
+		fields = ["id", "name", "description", "image", "slug", "questions_count"]
+		read_only_fields = ["questions_count"]
+
+	def get_questions_count(self, obj):
+		return obj.question_set.all().count()
 
 
 class QuizListSerializer(serializers.ModelSerializer):
@@ -83,6 +97,48 @@ class MyQuizListSerializer(serializers.ModelSerializer):
 
 
 
+class MyQuizListSerializer(serializers.ModelSerializer):
+	completed = serializers.SerializerMethodField()
+	progress = serializers.SerializerMethodField()
+	questions_count = serializers.SerializerMethodField()
+	score = serializers.SerializerMethodField()
+
+	class Meta:
+		model = Quiz
+		fields = ["id", "name", "description", "image", "slug", "questions_count", "completed", "score", "progress"]
+		read_only_fields = ["questions_count", "completed", "progress"]
+
+	def get_completed(self, obj):
+		try:
+			quiztaker = QuizTaker.objects.get(user=self.context['request'].user, quiz=obj)
+			return quiztaker.completed
+		except QuizTaker.DoesNotExist:
+			return None
+
+	def get_progress(self, obj):
+		try:
+			quiztaker = QuizTaker.objects.get(user=self.context['request'].user, quiz=obj)
+			if quiztaker.completed == False:
+				questions_answered = UsersAnswer.objects.filter(quiz_taker=quiztaker, answer__isnull=False).count()
+				total_questions = obj.question_set.all().count()
+				return int(questions_answered / total_questions)
+			return None
+		except QuizTaker.DoesNotExist:
+			return None
+
+	def get_questions_count(self, obj):
+		return obj.question_set.all().count()
+
+	def get_score(self, obj):
+		try:
+			quiztaker = QuizTaker.objects.get(user=self.context['request'].user, quiz=obj)
+			if quiztaker.completed == True:
+				return quiztaker.score
+			return None
+		except QuizTaker.DoesNotExist:
+			return None
+
+
 class QuizTakerSerializer(serializers.ModelSerializer):
 	usersanswer_set = UsersAnswerSerializer(many=True)
 
@@ -90,6 +146,10 @@ class QuizTakerSerializer(serializers.ModelSerializer):
 		model = QuizTaker
 		fields = "__all__"
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 class QuizDetailSerializer(serializers.ModelSerializer):
 	quiztakers_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -107,8 +167,11 @@ class QuizDetailSerializer(serializers.ModelSerializer):
 			return None
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> main
 class QuizResultSerializer(serializers.ModelSerializer):
 	quiztaker_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -124,4 +187,9 @@ class QuizResultSerializer(serializers.ModelSerializer):
 			return serializer.data
 
 		except QuizTaker.DoesNotExist:
+<<<<<<< HEAD
 			return None 
+
+=======
+			return None 
+>>>>>>> main
