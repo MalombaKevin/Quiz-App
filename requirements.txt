@@ -11,24 +11,19 @@ decorator==5.1.1
 dj-database-url==0.5.0
 Django==4.0.5
 django-bootstrap4==22.1
+django-cors-headers==3.13.0
 django-crispy-forms==1.14.0
 django-heroku==0.3.1
-<<<<<<< HEAD
-django-rest-knox==4.2.0
-=======
 django-nested-admin==3.4.0
->>>>>>> michael
+django-rest-knox==4.2.0
 djangorestframework==3.13.1
 dynaconf==3.1.9
 gunicorn==20.1.0
-<<<<<<< HEAD
 hvac==0.11.2
 idna==3.3
+install==1.3.5
 knox==0.1.14
 loguru==0.6.0
-=======
-install==1.3.5
->>>>>>> michael
 Pillow==9.1.1
 psycopg2==2.9.3
 pycparser==2.21
@@ -41,8 +36,5 @@ six==1.16.0
 soupsieve==2.3.2.post1
 sqlparse==0.4.2
 urllib3==1.26.9
-<<<<<<< HEAD
 validators==0.20.0
-=======
->>>>>>> michael
 whitenoise==6.2.0
