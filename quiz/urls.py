@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path,re_path,include
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
+    path('',include('accounts.urls')),
+    path('',include('quiz_app.urls')),
     re_path(r'^_nested_admin/', include('nested_admin.urls')),
+    
 ]
