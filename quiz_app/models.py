@@ -17,7 +17,7 @@ class Category(models.Model):
 class Quiz(models.Model):
 	name = models.CharField(max_length=100)
 	description = models.CharField(max_length=70)
-	image = CloudinaryField('images')
+	image = CloudinaryField('images',blank=True)
 	slug = models.SlugField(blank=True)
 	roll_out = models.BooleanField(default=False)
 	timestamp = models.DateTimeField(auto_now_add=True)
