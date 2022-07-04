@@ -1,4 +1,4 @@
-from models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
+from .models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
