@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'rest_framework',
-    'cloudinary'
+    'cloudinary',
     'quiz_app',
     'accounts',
     'knox',
