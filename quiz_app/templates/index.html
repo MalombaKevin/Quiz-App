@@ -1,0 +1,113 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizapp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- MDB -->
+<link rel="stylesheet" href="static/css/mdb.min.css" />
+
+</head>
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: navy;">
+            <div class="container-fluid">
+              <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                <li class="nav-item me-3 ms-3 me-lg-0">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-bell text-light"></i>
+                  </a>
+                </li>
+                
+                <!-- Icon dropdown -->
+                <li class="nav-item me-3 me-lg-0 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                   Quiz Api <i>&#9781;</i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{% url 'quizzes'%}">QUIZZES</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="">QUIZDETAIL</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'my_quizlist'%}">MyQUIZ</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+
+
+                <li class="nav-item  ms-3 me-3 me-lg-0 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                   Auth Api <i class="fas fa-user text-light"></i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    
+                    <li>
+                      <a class="dropdown-item" href="{% url 'register'%}">Register</a>
+                    </li>
+
+                    <li>
+                      <a class="dropdown-item" href="{% url 'login'%}">Login</a>
+                    </li>
+                  </ul>
+                </li>
+
+
+
+
+
+              </ul>
+            </div>
+          </nav>
+
+          <div class=" w-75 mt-2 mx-auto" style="background-image: url('../../static/images/quesa.svg'); height: 70vh; background-repeat: no-repeat; background-size: cover;">
+
+
+          </div>
+          <hr>
+          <div>
+            <p class="text-danger text-center" style="font-size: 10em;">&#8511;</p>
+          </div>
+    </div>
+   <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/mdb.min.js"></script>
+</body>
+</html>
