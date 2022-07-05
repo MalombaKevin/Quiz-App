@@ -49,7 +49,7 @@ class QuizListAPI(generics.ListAPIView):
 					Q(description__icontains=query)
 				).distinct()
 
-			return 
+			return queryset
 
 
 
