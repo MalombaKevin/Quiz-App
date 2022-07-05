@@ -142,10 +142,6 @@ class QuizTakerSerializer(serializers.ModelSerializer):
 		model = QuizTaker
 		fields = "__all__"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 class QuizDetailSerializer(serializers.ModelSerializer):
 	quiztakers_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -163,11 +159,8 @@ class QuizDetailSerializer(serializers.ModelSerializer):
 			return None
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> main
 class QuizResultSerializer(serializers.ModelSerializer):
 	quiztaker_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -183,9 +176,4 @@ class QuizResultSerializer(serializers.ModelSerializer):
 			return serializer.data
 
 		except QuizTaker.DoesNotExist:
-<<<<<<< HEAD
 			return None 
-
-=======
-			return None 
->>>>>>> main
