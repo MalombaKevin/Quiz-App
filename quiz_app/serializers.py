@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from .models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
-=======
 from .models import Category, QuizTaker, Question, Answer, UsersAnswer,Quiz
->>>>>>> main
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
