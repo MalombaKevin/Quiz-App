@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'accounts',
     'knox',
     'nested_admin',
+    
 
 ]
 
@@ -72,6 +73,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
     'UNICODE_JSON':False
 }
+
+
+
+
+
 ROOT_URLCONF = 'quiz.urls'
 
 TEMPLATES = [
@@ -136,7 +142,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-CORS_ALLOW_ALL_ORIGINS:True
+CORS_ALLOW_ALL_ORIGINS=True
 
 cloudinary.config( 
   cloud_name=config('CLOUD_NAME'),

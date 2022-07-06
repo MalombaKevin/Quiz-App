@@ -7,6 +7,13 @@ from rest_framework import generics, permissions
 from rest_framework.response import Response
 
 
+#example
+# from django.conf import  settings
+# from django.dispatch import receiver
+# from django.db.models.signals import post_save
+# from rest_framework.authtoken.models import Token
+
+
 class LoginAPI(generics.GenericAPIView):
 	serializer_class = LoginSerializer
 
@@ -43,4 +50,10 @@ class UserAPI(generics.RetrieveAPIView):
 	serializer_class = UserSerializer
 
 	def get_object(self):
-		self.request.user
+	  return self.request.user
+
+
+# @receiver(post_save,sender=settings.AUTH_USER_MODEL)
+# def create_token(sender,instance=None, created=False):
+# 	if created:
+# 		Token.objects.create(instance=user)

@@ -7,6 +7,8 @@ from .models import Answer, Question, Quiz, QuizTaker, UsersAnswer
 from .serializers import MyQuizListSerializer, QuizDetailSerializer, QuizListSerializer, QuizResultSerializer, UsersAnswerSerializer
 
 
+
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -18,6 +20,7 @@ class MyQuizListAPI(generics.ListAPIView):
 	permission_classes = [
 		permissions.IsAuthenticated
 	]
+	
 	serializer_class = MyQuizListSerializer
 
 	def get_queryset(self, *args, **kwargs):
