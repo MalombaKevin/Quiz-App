@@ -142,7 +142,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ORIGIN_ALLOW_ALL = True
+
 
 cloudinary.config( 
   cloud_name=config('CLOUD_NAME'),
