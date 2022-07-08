@@ -48,6 +48,8 @@ class Answer(models.Model):
 
 class QuizTaker(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	bio = models.TextField(max_length=500, blank=True)
+	profile_picture = CloudinaryField('image')
 	quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 	score = models.IntegerField(default=0)
 	completed = models.BooleanField(default=False)

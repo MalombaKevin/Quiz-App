@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from .models import Category, Quiz, QuizTaker, Question, Answer, UsersAnswer
-=======
 from .models import Category, QuizTaker, Question, Answer, UsersAnswer,Quiz
->>>>>>> main
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -146,10 +142,6 @@ class QuizTakerSerializer(serializers.ModelSerializer):
 		model = QuizTaker
 		fields = "__all__"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 class QuizDetailSerializer(serializers.ModelSerializer):
 	quiztakers_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -167,11 +159,8 @@ class QuizDetailSerializer(serializers.ModelSerializer):
 			return None
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> main
 class QuizResultSerializer(serializers.ModelSerializer):
 	quiztaker_set = serializers.SerializerMethodField()
 	question_set = QuestionSerializer(many=True)
@@ -187,9 +176,4 @@ class QuizResultSerializer(serializers.ModelSerializer):
 			return serializer.data
 
 		except QuizTaker.DoesNotExist:
-<<<<<<< HEAD
 			return None 
-
-=======
-			return None 
->>>>>>> main
