@@ -32,24 +32,24 @@ class MyQuizListAPI(generics.ListAPIView):
 
 		return queryset
 
-
 class QuizListAPI(generics.ListAPIView):
-	serializer_class = QuizListSerializer
-	permission_classes = [
-		permissions.IsAuthenticated
-	]
+		serializer_class = QuizListSerializer
+	
+		permission_classes = [
+			permissions.IsAuthenticated
+		]
 
-	def get_queryset(self, *args, **kwargs):
-		queryset = Quiz.objects.filter(roll_out=True).exclude(quiztaker__user=self.request.user)
-		query = self.request.GET.get("q")
+		def get_queryset(self, *args, **kwargs):
+			queryset = Quiz.objects.filter(roll_out=True).exclude(quiztaker__user=self.request.user)
+			query = self.request.GET.get("q")
 
-		if query:
-			queryset = queryset.filter(
-				Q(name__icontains=query) |
-				Q(description__icontains=query)
-			).distinct()
+			if query:
+				queryset = queryset.filter(
+					Q(name__icontains=query) |
+					Q(description__icontains=query)
+				).distinct()
 
-		return 
+			return 
 
 
 
