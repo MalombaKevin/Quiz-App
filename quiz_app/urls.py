@@ -9,4 +9,5 @@ urlpatterns = [
 	path("save-answer/", SaveUsersAnswer.as_view(),name='save_answer'),
 	re_path(r"quizzes/(?P<slug>[\w\-]+)/$", QuizDetailAPI.as_view(), name='quizdetail'),
 	re_path(r"quizzes/(?P<slug>[\w\-]+)/submit/$", SubmitQuizAPI.as_view(),name='submit'),
+	path('taker',TakerApi.as_view(),name='quiztaker'),
 ]

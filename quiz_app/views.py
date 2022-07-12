@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from .models import Answer, Question, Quiz, QuizTaker, UsersAnswer
-from .serializers import MyQuizListSerializer, QuizDetailSerializer, QuizListSerializer, QuizResultSerializer, UsersAnswerSerializer
+from .serializers import MyQuizListSerializer, QuizDetailSerializer, QuizListSerializer, QuizResultSerializer, QuizTakerSerializer, UsersAnswerSerializer
 
 
 
@@ -153,3 +153,13 @@ class SubmitQuizAPI(generics.GenericAPIView):
 		quiztaker.save()
 
 		return Response(self.get_serializer(quiz).data)
+
+
+class TakerApi(generics.RetrieveAPIView):
+	permission_classes = [
+		permissions.IsAuthenticated
+	]
+	serializer_class = QuizTakerSerializer
+
+	def get_object(self):
+	  return self.request.user
