@@ -164,7 +164,7 @@ class TakerApi(generics.RetrieveAPIView):
 	def get(self, *args, **kwargs):
 		# quiztaker = QuizTaker.objects.get_or_404(user=self.request.user)
 		# return quiztaker
-		quiztaker = QuizTaker.objects.get(user=self.request.user)
+		quiztaker = get_object_or_404(QuizTaker, id=self.request.user.id)
 		serializer = QuizTakerSerializer(quiztaker)
 		return serializer.data
 
