@@ -163,7 +163,7 @@ class TakerApi(generics.RetrieveAPIView):
 
 	def get(self, *args, **kwargs):
 		quiztaker = QuizTaker.objects.get_or_404(user=self.request.user)
-		return Response(self.get_serializer(quiztaker).data)
+		return quiztaker
 
 
 	# def get_object(self):
