@@ -35,7 +35,7 @@ class MyQuizListAPI(generics.ListAPIView):
 
 		return queryset
 
-class QuizListAPI(generics.ListAPIView):
+class QuizListAPI(generics.ListCreateAPIView):
 		serializer_class = QuizListSerializer
 	
 		permission_classes = [
