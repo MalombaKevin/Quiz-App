@@ -89,7 +89,7 @@ class QuizTakerSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = QuizTaker
-		fields = "__all__"
+		fields = ['username','bio','profile_picture','score']
 
 class QuizDetailSerializer(serializers.ModelSerializer):
 	quiztakers_set = serializers.SerializerMethodField()

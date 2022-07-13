@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'accounts',
     'knox',
     'nested_admin',
+    'uritemplate'
     
 
 ]
@@ -71,7 +72,8 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
-    'UNICODE_JSON':False
+    'UNICODE_JSON':False,
+    'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 
